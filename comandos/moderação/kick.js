@@ -3,7 +3,7 @@ const c = require('../config.json'); // Puxando o conteúdo do arquivo config.js
 exports.run = (client, message, args) => {
 
 // Embed para explicar o uso do comando
-  let erro = new Discord.RichEmbed()
+  let erro = new Discord.MessageEmbed()
 
   .setTitle(`❓ INFORMAÇÃO DO COMANDO`)
   .setDescription(`\`ban\` - Expulse um usuário`)
@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
        if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply(`esse comando necessita da permissão: **KICK_MEMBERS**`)
   
     // Agora, a embed de confirmação
-       let banembed = new Discord.RichEmbed()
+       let banembed = new Discord.MessageEmbed()
 
        .setTitle(`<:DL_correto:693214719477153813> Confirmação`)
        .setDescription(`**${message.author.username}**, você realmente deseja aplicar esse banimento em **${membro.user.username}**?`)
@@ -37,7 +37,7 @@ exports.run = (client, message, args) => {
 
          coletor.on("collect", em => { // Com o coletor, iremos fazer a ação
              em.remove(message.author.id); // Removendo o clique do usuário no emoji
-             let embed = new Discord.RichEmbed()
+             let embed = new Discord.MessageEmbed()
 
              .setTitle(`:hammer: Kick`)
              .setDescription(`:bust_in_silhouette: » Membro: **${membro.user.tag}**\n\n:police_officer: » Responsável: **${message.author.tag}**\n\n:notepad_spiral: » Motivo: ${motivo}`)
